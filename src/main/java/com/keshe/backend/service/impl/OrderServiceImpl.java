@@ -1,5 +1,6 @@
 package com.keshe.backend.service.impl;
 
+import com.keshe.backend.common.GetCurrentTime;
 import com.keshe.backend.dto.OrderDto;
 import com.keshe.backend.mapper.AddressMapper;
 import com.keshe.backend.mapper.OrderMapper;
@@ -22,6 +23,8 @@ public class OrderServiceImpl implements OrderService {
     private UserMapper userMapper;
     @Autowired
     private AddressMapper addressMapper;
+
+    GetCurrentTime getCurrentTime=new GetCurrentTime();
     @Override
     public void createOrder(Order order) {
         log.info("-----------{}",order.getAddressId());
@@ -54,5 +57,10 @@ public class OrderServiceImpl implements OrderService {
     public void updateOrder(String orderNum) {
 //        int num=Integer.parseInt(orderNum) ;
         orderMapper.updateOrder(orderNum);
+    }
+
+    @Override
+    public void updateTime() {
+        orderMapper.updateDate(getCurrentTime.getCurrentTime());
     }
 }

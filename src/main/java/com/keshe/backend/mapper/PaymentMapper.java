@@ -16,7 +16,7 @@ public interface PaymentMapper {
     @Select("select payUrl from payment where payType=#{payType}")
     String findByType(String payType);
 
-    @Select("select orders.*, address.addressName,address.addressPhone,address.address, product.discountPrice ,product.imgPath ,product.name,product.productId " +
-            "from orders, product,address where address.userId=orders.userId and orders.productId = product.productId and orders.orderNum = #{id} and orders.addressId=address.id")
+    @Select("select orders.*, address.addressName,address.addressPhone,address.address, product.discount_price ,product.img_path ,product.name,product.product_id " +
+            "from orders, product,address where address.userId=orders.userId and orders.productId = product.product_id and orders.orderNum = #{id} and orders.addressId=address.id")
     OrderDto findById(Integer id);
 }

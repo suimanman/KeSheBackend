@@ -7,18 +7,14 @@ import lombok.Data;
 
 @Data
 public class Product {
-    @TableId(value = "productId", type = IdType.AUTO)
-    @JsonProperty("product_id")
-    private Integer productId;
+    @TableId(value = "product_id", type = IdType.AUTO)
+    private Integer product_id;
     private String name;
-    @JsonProperty("category_id")
-    private Integer categoryId;
+    private Integer category_id;
     private String title;
-    @JsonProperty("img_path")
-    private String imgPath;
+    private String img_path;
     private Double price;
-    @JsonProperty("discount_price")
-    private Double discountPrice;
+    private Double discount_price;
     private String info;
     @JsonProperty("created_at")
     private Data createdAt;

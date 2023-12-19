@@ -18,4 +18,6 @@ public interface OrderService {
     void deleteOrder(int userId,int productId);
 
     void updateOrder(String orderNum);
+
+    void updateTime();
 }

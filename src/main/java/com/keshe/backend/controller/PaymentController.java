@@ -32,6 +32,7 @@ public class PaymentController {
     @PostMapping("/payments")
     public Result showPayType(@RequestBody Payment form){
         orderService.updateOrder(form.getOrderNum());
+        orderService.updateTime();
         log.info("----------{}",form.getOrderNum());
         String payUrl=paymentService.displayPayType(form.getPayType());
         Map<String,String> result=new HashMap<>();

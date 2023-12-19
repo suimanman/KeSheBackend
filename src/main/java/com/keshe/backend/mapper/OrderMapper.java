@@ -6,14 +6,15 @@ import com.keshe.backend.pojo.Address;
 import com.keshe.backend.pojo.Order;
 import org.apache.ibatis.annotations.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Mapper
 public interface OrderMapper extends BaseMapper<Order> {
 
 
-    @Select("select distinct orders.*, address.addressName, product.discountPrice ,product.imgPath ,product.name,product.productId " +
-            "from orders, product,address where address.userId=#{UserID} and orders.productId = product.productId and orders.userId = #{UserID}")
+    @Select("select distinct orders.*, address.addressName, product.discount_price ,product.img_path ,product.name,product.product_id " +
+            "from orders, product,address where address.userId=#{UserID} and orders.productId = product.product_id and orders.userId = #{UserID}")
     List<OrderDto> findById(Integer UserID);
 
     @Insert("insert into orders(userId,productId,num,type,createdAt,addressId) values(#{userId},#{productId},#{num},1,#{createdAt},#{addressId})")
@@ -24,5 +25,8 @@ public interface OrderMapper extends BaseMapper<Order> {
 
     @Update("update orders set type=2 where orderNum=#{orderNum}")
     void updateOrder(String orderNum);
+
+    @Update("update order set updatedAt=#{updatedAt}")
+    void updateDate(LocalDateTime updatedAt);
 }
 
