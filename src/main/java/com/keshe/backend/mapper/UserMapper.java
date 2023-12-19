@@ -17,7 +17,9 @@ public interface UserMapper extends BaseMapper<User> {
     User selectUserById(User user);
     @Select("select * from user where username = #{username}")
     User selectUser(User user);
-
     @Select("select * from user")
     List<User> list();
+
+    @Select("select id from user where username=#{username}")
+    Integer queryId(String username);
 }

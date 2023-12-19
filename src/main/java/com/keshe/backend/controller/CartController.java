@@ -22,7 +22,7 @@ public class CartController {
         if(num>maxNum){
             return Result.success(202);
         }else if(num>0){
-            cartService.updateCart();
+            cartService.updateCart(num+1);
             return Result.success(201);
         }else{
             cartService.createCart(cart);
@@ -30,16 +30,20 @@ public class CartController {
             return Result.success(result);
         }
     }
-
+    @PutMapping("/carts")
+    public Result updateCart(@RequestBody Cart cart){
+        cartService.updateCart(cart.getNum());
+        return Result.success();
+    }
     @DeleteMapping("/carts")
     public Result deleteCart(@RequestBody Cart cart){
-        cartService.deleteCart(cart);
+        cartService.deleteCart(cart.getUserId(),cart.getProductId());
         return Result.success(200);
     }
 
     @GetMapping("/carts/{userId}")
     public Result listCarts(@PathVariable int userId){
-        List<Cart> result=cartService.showCarts(userId);
+        List<CartDto> result=cartService.showCarts(userId);
         return Result.success(result);
     }
 }

@@ -9,12 +9,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("orders")
-public class Order implements Serializable {
+public class Order  {
     @TableId(value = "orderNum")
     @JsonProperty("user_id")
     private Integer userId;
@@ -23,12 +24,12 @@ public class Order implements Serializable {
     private Integer num;
     @JsonProperty("order_num")
     private Integer orderNum;//订单号
-    @JsonProperty("address_name")
-    private String addressName;
-    @JsonProperty("address_phone")
-    private String addressPhone;
     private Integer type;
-    private String address;
-
+    @JsonProperty("created_at")
+    private LocalDateTime createdAt;
+    @JsonProperty("updated_at")
+    private LocalDateTime updatedAt;
+    @JsonProperty("address_id")
+    private Integer addressId;
 }
 

@@ -29,12 +29,12 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void deleteCart(Cart cart) {
-        cartMapper.deleteCart(cart);
+    public void deleteCart(int userId,int productId) {
+        cartMapper.deleteCart(userId, productId);
     }
 
     @Override
-    public List<Cart> showCarts(int id) {
+    public List<CartDto> showCarts(int id) {
         return cartMapper.showCarts(id);
     }
 
@@ -44,7 +44,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void updateCart() {
-        cartMapper.updateCart();
+    public void updateCart(int num) {
+        cartMapper.updateCart(num);
     }
 }

@@ -15,4 +15,6 @@ public class Payment {
     private String payType;
     @JsonProperty("pay_url")
     private String payUrl;
+    @JsonProperty("order_num")
+    private String orderNum;
 }

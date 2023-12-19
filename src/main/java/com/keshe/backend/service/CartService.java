@@ -12,10 +12,10 @@ public interface CartService {
     Integer queryCartMaxNum(Cart cart);
     void createCart(Cart cart);
 
-    void deleteCart(Cart cart);
+    void deleteCart(int userId,int productID);
 
-    List<Cart> showCarts(int id);
+    List<CartDto> showCarts(int id);
     List<CartDto> queryCarts(Cart cart);
 
-    void updateCart();
+    void updateCart(int num);
 }

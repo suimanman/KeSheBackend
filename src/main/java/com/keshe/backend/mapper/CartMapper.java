@@ -22,12 +22,12 @@ public interface CartMapper extends BaseMapper<Cart> {
     @Insert("insert into cart(userId,productId) values(user_id,product_id)")
      void creatCart(Cart cart);
 
-    @Delete("delete from cart where userId=#{user_id} and productId=#{product_id}")
-    void deleteCart(Cart cart);
+    @Delete("delete from cart where userId=#{userId} and productId=#{productId}")
+    void deleteCart(int userId,int productId);
 
-    @Select("select * from cart where userId=#{id}")
-    List<Cart> showCarts(int id);
+    @Select("select product.*,cart.* from cart,product where cart.userId=#{id} and cart.productId=product.productId")
+    List<CartDto> showCarts(int id);
 
-    @Update("update cart set num=num+1")
-    void updateCart();
+    @Update("update cart set num=#{num}")
+    void updateCart(int num);
 }
