@@ -60,7 +60,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void updateTime() {
-        orderMapper.updateDate(getCurrentTime.getCurrentTime());
+    public void updateTime(String orderNum) {
+        orderMapper.updateDate(getCurrentTime.getCurrentTime(),orderNum);
     }
 }

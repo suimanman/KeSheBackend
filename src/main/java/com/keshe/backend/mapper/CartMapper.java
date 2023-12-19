@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface CartMapper extends BaseMapper<Cart> {
 
-    @Select("select product.*,cart.* from cart,product where cart.userId=#{user_id} and cart.productId=product.productId")
+    @Select("select product.*,cart.* from cart,product where cart.userId=#{user_id} and cart.productId=product.product_id")
     List<CartDto> queryCarts(Cart cart);
 
     @Select("select num from cart where userId=#{user_id} and productId=#{product_id}")
@@ -25,7 +25,7 @@ public interface CartMapper extends BaseMapper<Cart> {
     @Delete("delete from cart where userId=#{userId} and productId=#{productId}")
     void deleteCart(int userId,int productId);
 
-    @Select("select product.*,cart.* from cart,product where cart.userId=#{id} and cart.productId=product.productId")
+    @Select("select product.*,cart.* from cart,product where cart.userId=#{id} and cart.productId=product.product_id")
     List<CartDto> showCarts(int id);
 
     @Update("update cart set num=#{num}")

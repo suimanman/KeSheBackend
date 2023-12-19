@@ -39,7 +39,7 @@ public class OrderController {
     }
     @DeleteMapping("/orders")
     public Result deleteOrder(@RequestBody OrderDeleteDto order){
-        orderService.deleteOrder(order.getUser_id(),order.getProduct_id());
+        orderService.deleteOrder(order.getUserId(),order.getProductId());
         return Result.success();
     }
     @GetMapping("/user/{id}/orders")

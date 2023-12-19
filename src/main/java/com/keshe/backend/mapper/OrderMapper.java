@@ -26,7 +26,7 @@ public interface OrderMapper extends BaseMapper<Order> {
     @Update("update orders set type=2 where orderNum=#{orderNum}")
     void updateOrder(String orderNum);
 
-    @Update("update order set updatedAt=#{updatedAt}")
-    void updateDate(LocalDateTime updatedAt);
+    @Update("update orders set updatedAt=#{updatedAt} where orders.orderNum=#{orderNum}")
+    void updateDate(LocalDateTime updatedAt,String orderNum);
 }
 

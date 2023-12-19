@@ -4,6 +4,7 @@ import com.keshe.backend.common.Result;
 import com.keshe.backend.dto.CartDto;
 import com.keshe.backend.pojo.Cart;
 import com.keshe.backend.service.impl.CartServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@Slf4j
 public class CartController {
     @Autowired
     private CartServiceImpl cartService;

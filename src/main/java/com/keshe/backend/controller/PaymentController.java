@@ -25,15 +25,14 @@ public class PaymentController {
     @GetMapping("/orders/{order_num}")
     public Result showPayment(@PathVariable Integer order_num){
         OrderDto ordersdto=paymentService.displayPayment(order_num);
-        ordersdto.setCreatedAt(getCurrentTime.getCurrentTime());
         return Result.success(ordersdto);
     }
 
     @PostMapping("/payments")
     public Result showPayType(@RequestBody Payment form){
-        orderService.updateOrder(form.getOrderNum());
-        orderService.updateTime();
         log.info("----------{}",form.getOrderNum());
+        orderService.updateOrder(form.getOrderNum());
+        orderService.updateTime(form.getOrderNum());
         String payUrl=paymentService.displayPayType(form.getPayType());
         Map<String,String> result=new HashMap<>();
         result.put("payUrl",payUrl);

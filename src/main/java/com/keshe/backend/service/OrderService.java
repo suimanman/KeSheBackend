@@ -19,5 +19,5 @@ public interface OrderService {
 
     void updateOrder(String orderNum);
 
-    void updateTime();
+    void updateTime(String orderNum);
 }

@@ -4,12 +4,14 @@ import com.keshe.backend.dto.CartDto;
 import com.keshe.backend.mapper.CartMapper;
 import com.keshe.backend.pojo.Cart;
 import com.keshe.backend.service.CartService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class CartServiceImpl implements CartService {
     @Autowired
     CartMapper cartMapper;
